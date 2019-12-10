@@ -1,11 +1,11 @@
+//Child component of the app 
+//Returns all the captured images
 import React, { Component } from 'react'
 import './style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRedo } from '@fortawesome/free-solid-svg-icons'
 import Axios from 'axios';
-import LazyLoad from 'react-lazyload';
 import FadeIn from "react-lazyload-fadein";
-import photoWrapper from './PhotoWrapper';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col } from 'react-bootstrap'
 class PhotoWrapper extends Component {
@@ -16,10 +16,12 @@ class PhotoWrapper extends Component {
             album: []
         }
     }
+    //Generate the id to get image info 
     randNumGen = (max) => {
         const num = Math.floor(Math.random() * Math.floor(max));
         return num;
       }
+      //Get the image info from the picsum API
       getPhoto = () => {
         const albums = this.state.album;
         const id = this.randNumGen(1000);
@@ -39,6 +41,8 @@ class PhotoWrapper extends Component {
             this.getPhoto(nid)
           });
       }
+      //Check wheither the album array has value before 
+      // and remove any excessive images
       photoRand = () => {
         if (this.state.album.length != 0) {
           this.state.album = []
@@ -58,6 +62,7 @@ class PhotoWrapper extends Component {
           }
         })
       }
+      //adds more images into the array
       addPhoto = () =>{
         var i;
         for(i=0;i<=2;i++){
