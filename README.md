@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 First, clone the project files into your directory using the command:
 
-### `git clone`
+### `git clone https://github.com/nikjefni/simple-photo-album.git`
 
 Next, install all of it's dependencies by using the command:
 
